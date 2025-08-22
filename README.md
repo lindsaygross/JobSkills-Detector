@@ -1,5 +1,9 @@
+
+
+title: Resume Checker
 sdk: streamlit
 app_file: app.py
+sdk_version: 1.36.0
 
 # 1. Clone and Install
 
