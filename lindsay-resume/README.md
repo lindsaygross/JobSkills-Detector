@@ -1,13 +1,6 @@
 ---
 title: Lindsay Resume
-emoji: 🐠
-colorFrom: red
-colorTo: purple
-sdk: gradio
-sdk_version: 5.43.1
+sdk: streamlit
 app_file: app.py
-pinned: false
-short_description: 'resume checker app '
+sdk_version: 1.36.0
 ---
-
-Check out the configuration reference at https://huggingface.co/docs/hub/spaces-config-reference
