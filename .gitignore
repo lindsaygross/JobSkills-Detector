@@ -19,3 +19,7 @@ venv/
 
 # Environment variables
 .env
+#avoid clutter
+*.pyc
+.ipynb_checkpoints/
+.DS_Store
