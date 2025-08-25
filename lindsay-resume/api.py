@@ -92,12 +92,18 @@ def detect_skills_keyword(text: str) -> Dict[str, int]:
 _MODEL = None
 _SKILL_EMB = None
 
+
 def _get_model():
     global _MODEL
     if _MODEL is None:
         from sentence_transformers import SentenceTransformer
-        _MODEL = SentenceTransformer("sentence-transformers/all-MiniLM-L6-v2")
+        # Force CPU to avoid MPS/Metal meta-tensor issues on macOS
+        _MODEL = SentenceTransformer(
+            "sentence-transformers/all-MiniLM-L6-v2",
+            device="cpu",
+        )
     return _MODEL
+
 
 def _embed(texts: List[str]):
     model = _get_model()
