@@ -32,7 +32,7 @@ tornado
 tqdm
 typing_extensions
 urllib3
-
+matplotlib
 streamlit>=1.31,<1.39
 pandas==2.2.3
 numpy==1.26.4
