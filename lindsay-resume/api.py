@@ -167,6 +167,9 @@ def fetch_jobs_remotive(query: str, limit: int = 10) -> List[Dict]:
         out.append({
             "title": j.get("title", ""),
             "company": j.get("company_name", ""),
+            "url": j.get("url", ""),  # APPLY / job detail link
+            "location": j.get("candidate_required_location", ""),
+            "date": j.get("publication_date", "")[:10],
             "description": _strip_html(j.get("description", "")),
         })
     return out
