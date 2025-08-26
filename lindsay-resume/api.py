@@ -1,4 +1,21 @@
 # api.py
+# --- hard-disable MPS & force CPU ---
+import os
+os.environ["PYTORCH_ENABLE_MPS_FALLBACK"] = "1"   # if MPS is hit, fall back to CPU
+
+try:
+    import torch
+    # Pretend MPS doesn't exist so libraries won't try to use it
+    if hasattr(torch.backends, "mps"):
+        torch.backends.mps.is_available = lambda: False
+        torch.backends.mps.is_built = lambda: False
+    # Optional: default device to CPU (newer torch only)
+    if hasattr(torch, "set_default_device"):
+        torch.set_default_device("cpu")
+except Exception:
+    pass
+# ------------------------------------
+
 import re
 import io
 import math
