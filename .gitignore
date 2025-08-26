@@ -1,6 +1,7 @@
 # Byte-compiled files
 __pycache__/
 *.py[cod]
+*$py.class
 
 # Virtual environment
 venv/
@@ -23,3 +24,4 @@ venv/
 *.pyc
 .ipynb_checkpoints/
 .DS_Store
+*.tmp
