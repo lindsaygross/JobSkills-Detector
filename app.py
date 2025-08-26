@@ -1,17 +1,22 @@
-#Imports
 import streamlit as st
 from api import detect_skills, extract_text_from_pdf_bytes
-#Title
+
 st.title("Skill Detector")
-#Text Input
+
+# Text input
 text = st.text_area("Paste your text:")
-#PDF Upload 
-uploaded = st.file_uploader("...or upload a PDF resume", type=["pdf"])
-if uploaded is not None:
-    pdf_text = extract_text_from_pdf_bytes(uploaded.read())
-    st.caption(f"Extracted {len(pdf_text)} characters from PDF")
-    text = (text or "") + "\n" + (pdf_text or "")
-#Show detected skills
+
+# PDF upload
+uploaded_file = st.file_uploader("...or upload a PDF resume", type="pdf")
+
+if uploaded_file is not None:
+    # Read PDF bytes and extract text
+    file_bytes = uploaded_file.read()
+    pdf_text = extract_text_from_pdf_bytes(file_bytes)
+    st.info(f"Extracted {len(pdf_text)} characters from PDF")
+    text = pdf_text  # override text with PDF content
+
+# Show detected skills
 if text:
     skills = detect_skills(text)
     if skills:
