@@ -1,9 +1,12 @@
 # Byte-compiled files
 __pycache__/
 *.py[cod]
+*$py.class
 
 # Virtual environment
 venv/
+.venv/
+
 
 # Logs
 *.log
@@ -17,3 +20,19 @@ venv/
 
 # Environment variables
 .env
+#avoid clutter
+*.pyc
+.ipynb_checkpoints/
+.DS_Store
+*.tmp.venv/
+venv/
+__pycache__/
+*.pyc
+.DS_Store
+.venv/
+venv/
+__pycache__/
+.ipynb_checkpoints/
+.DS_Store
+.env
+

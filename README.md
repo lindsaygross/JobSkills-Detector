@@ -1,23 +1,9 @@
-
-
-title: Resume Checker
+---
+title: Jobskills
+emoji: 📊
+colorFrom: blue
+colorTo: green
 sdk: streamlit
-app_file: app.py
-sdk_version: 1.36.0
-
-# 1. Clone and Install
-
-git clone https://github.com/YOUR-USERNAME/skill-detector.git
-cd skill-detector
-python3 -m venv .venv && source .venv/bin/activate
-pip install -r requirements.txt
-
-
-# 2. Create a .env file
-HUGGINGFACE_API_KEY=hf_********************************
-
-# 3. Run the CLI
-python3 cli_demo.py --text "I have experience in Python, Pandas, and SQL."
-
-# 4. Run the streamlit app
-streamlit run app.py
+app_file: lindsay-resume/app.py   # or just app.py if that's your entry point
+pinned: false
+---
