@@ -24,4 +24,15 @@ venv/
 *.pyc
 .ipynb_checkpoints/
 .DS_Store
-*.tmp
+*.tmp.venv/
+venv/
+__pycache__/
+*.pyc
+.DS_Store
+.venv/
+venv/
+__pycache__/
+.ipynb_checkpoints/
+.DS_Store
+.env
+
