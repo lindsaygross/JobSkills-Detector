@@ -32,8 +32,10 @@ tornado
 tqdm
 typing_extensions
 urllib3
-sentence-transformers
+sentence-transformers==2.5.1
 torch
+transformers==4.41.2
+
 
 streamlit>=1.31,<1.39
 pandas==2.2.3
