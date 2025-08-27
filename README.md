@@ -16,7 +16,7 @@ The goal of the project is to detect technical skills from resumes or job text u
 ---
 
 ## Tech Stack
-- Python 3.10+  
+- Python 3.9+  
 - Streamlit  
 - pypdf (for reading PDFs)  
 - pandas / numpy / scikit-learn  
@@ -67,7 +67,7 @@ python cli_demo.py --text "I have experience with Python, SQL, and Tableau."
 
 This project was built and tested with:
 
-Python 3.10
+Python 3.9+
 
 ## Hugging Face Space
 
