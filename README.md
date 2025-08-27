@@ -70,6 +70,7 @@ This project was built and tested with:
 Python 3.9+
 
 ## Hugging Face Space
+https://huggingface.co/spaces/Lindsaygross/jobskills
 
 # Project Structure
 ├── app.py            # Streamlit app
