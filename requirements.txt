@@ -35,7 +35,7 @@ urllib3
 sentence-transformers==2.5.1
 torch
 transformers==4.41.2
-
+# sentence-transformers>=2.7.0
 
 streamlit>=1.31,<1.39
 pandas==2.2.3
