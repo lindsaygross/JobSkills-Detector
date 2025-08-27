@@ -77,6 +77,10 @@ Python 3.9+
 ├── cli_demo.py       # CLI demo runner
 ├── requirements.txt  # Python dependencies
 └── README.md         # Project documentation
+└── resume.jpg        # image
+
+![Demo Screenshot](resume.jpg)
+
 
 
 
