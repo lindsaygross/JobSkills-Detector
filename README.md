@@ -46,7 +46,6 @@ streamlit run app.py
 
 python cli_demo.py --mode skills --text "I have Python, Pandas and AWS experience." --top-k 10
 
-## --- Gap analysis: resume file vs. job postings ---
 python cli_demo.py --mode gap --resume "path\to\resume.pdf" --job-query "data scientist" --num-jobs 8 --top-k 10
 
 1. **Manual Text Input**
@@ -63,7 +62,7 @@ Python 3.9+
 https://huggingface.co/spaces/Lindsaygross/jobskills
 
 # Project Structure
-.
+
 ├── app.py            # Streamlit app  
 ├── api.py            # API logic  
 ├── cli_demo.py       # CLI demo runner  
