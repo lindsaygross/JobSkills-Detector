@@ -59,6 +59,7 @@ This project was built and tested with:
 Python 3.9+
 
 ## Hugging Face Space
+Click to use JobSkills detector app:
 https://huggingface.co/spaces/Lindsaygross/jobskills
 
 # Project Structure
