@@ -6,12 +6,11 @@ The goal of the project is to detect technical skills from resumes or job text u
 ---
 
 ## Features
-- Detects skills from either:
-  - **pasted text**  
-  - **uploaded PDF resumes**  
-- Uses a keyword list of common technical skills (Python, SQL, Pandas, NumPy, scikit-learn, Tableau, Git, Excel, etc.).  
-- Provides both a **web app** (built with Streamlit) and a **command line tool (CLI)**.  
-- Simple output: prints out which skills were detected.  
+- Upload a **PDF/TXT resume** or **paste raw text**, or explore using the built-in sample resume.
+- Pull live postings from the free **Remotive jobs API** with an optional preferred-location filter.
+- Visualize gaps between resume skills and job demand with Altair charts and CSV downloads.
+- Explore ranked **resume skill signals**, inspect the processed resume text, and export job data.
+- Use either the **Streamlit web app** or the **CLI** for quick experimentation.  
 
 ---
 
@@ -37,20 +36,32 @@ source project-env/bin/activate
 3. **Install Requirements** 
 pip install -r requirements.txt
 
-4. **Run Streamlit** 
-streamlit run app.py
+4. **Run Streamlit**  
+streamlit run app.py --server.address 0.0.0.0 --server.port 8501
+
+Open http://localhost:8501 (or replace `localhost` with your LAN IP if opening from another device). If the port is already taken, provide a different number with `--server.port`.
 
 ---
 
 ## How to Run the CLI Version
 
+Detect top resume skills directly from text:
+
+```
 python cli_demo.py --mode skills --text "I have Python, Pandas and AWS experience." --top-k 10
+```
 
-python cli_demo.py --mode gap --resume "path\to\resume.pdf" --job-query "data scientist" --num-jobs 8 --top-k 10
+Analyze resume gaps vs. live jobs:
 
-1. **Manual Text Input**
-Bash:
-python cli_demo.py --text "I have experience with Python, SQL, and Tableau."
+```
+python cli_demo.py --mode gap \
+  --resume "path/to/resume.pdf" \
+  --job-query "data scientist" \
+  --num-jobs 8 \
+  --top-k 10
+```
+
+Manual text input works in either mode by providing `--text "..."` instead of `--resume`.
 
 # Python Version
 
@@ -73,7 +84,6 @@ https://huggingface.co/spaces/Lindsaygross/jobskills
 
 
 ![Demo Screenshot](resume.jpg)
-
 
 
 

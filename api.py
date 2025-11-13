@@ -206,16 +206,30 @@ def aggregate_job_skill_scores(jobs: List[Dict]) -> Dict[str, float]:
     return {s: (agg[s] / n) for s in CANONICAL_SKILLS}
 
 # -------- Main analysis: resume vs jobs --------
-def skill_gap_analysis(resume_text: str, job_query: str, num_jobs: int = 10,
-                       job_threshold: float = 0.40) -> List[Dict]:
+def skill_gap_analysis(
+    resume_text: str,
+    job_query: str,
+    num_jobs: int = 10,
+    job_threshold: float = 0.40,
+    preferred_location: str = "",
+    return_metadata: bool = False,
+):
     """
     Returns a sorted list of dict rows:
       {"skill", "resume_score", "job_score", "gap"}
     Sorted by descending gap (bigger gap = more missing).
     Only includes skills where job_score >= job_threshold.
+    If return_metadata=True, also returns (resume_scores, job_scores, jobs).
     """
     resume_scores = hybrid_skill_scores(resume_text)
     jobs = fetch_jobs_remotive(job_query, limit=num_jobs)
+    loc = (preferred_location or "").strip().lower()
+    if loc:
+        jobs = [
+            j
+            for j in jobs
+            if loc in (j.get("location", "") or "").lower()
+        ]
     job_scores = aggregate_job_skill_scores(jobs)
 
     rows = []
@@ -227,4 +241,6 @@ def skill_gap_analysis(resume_text: str, job_query: str, num_jobs: int = 10,
             rows.append({"skill": s, "resume_score": round(r, 3),
                          "job_score": round(j, 3), "gap": round(gap, 3)})
     rows.sort(key=lambda x: (-x["gap"], -x["job_score"], x["skill"]))
+    if return_metadata:
+        return rows, resume_scores, job_scores, jobs
     return rows
